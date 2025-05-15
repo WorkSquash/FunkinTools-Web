@@ -1,0 +1,140 @@
+/*Light Themes*/
+
+/* Ocean (light with deep accents) */
+[data-theme="ocean"] {
+  --bg-color:     #f0faff;
+  --text-color:   #0c1a24;
+  --accent-color: #0077cc;
+  --accent-hover: #004f80;   /* deeper navy blue */
+  --border-color: #80caff;
+
+  --select-bg:     #ffffff;
+  --select-text:   #0c1a24;
+  --select-border: #0077cc;
+
+  --link-color:          #006bb3;
+  --link-visited-color:  #004d80;
+  --link-hover-color:    #003060;  /* darker, more saturated */
+}
+
+
+/* Icy Mint (light cool) */
+[data-theme="mint"] {
+  --bg-color:     #e6f0f0;
+  --text-color:   #1a3a3a;
+  --accent-color: #56c7c1;
+  --accent-hover: #2a9d97;   /* stronger teal */
+  --border-color: #a0cbc9;
+
+  --select-bg:     #d9f0f0;
+  --select-text:   #1a3a3a;
+  --select-border: #56c7c1;
+
+  --link-color:          #329a94;
+  --link-visited-color:  #226c68;
+  --link-hover-color:    #1a6c67;  /* darker teal */
+}
+
+/* Coffee (warm, muted) */
+[data-theme="coffee"] {
+  --bg-color:     #f5f0eb;
+  --text-color:   #4b3b2b;
+  --accent-color: #6f4e37;
+  --accent-hover: #402913;   /* darker chocolate brown */
+  --border-color: #b9a691;
+
+  --select-bg:     #efe7dc;
+  --select-text:   #4b3b2b;
+  --select-border: #6f4e37;
+
+  --link-color:          #835c3b;
+  --link-visited-color:  #6b4b2d;
+  --link-hover-color:    #4d3214;  /* deep brown */
+}
+
+/* Sunset (warm and bright) */
+[data-theme="sunset"] {
+  --bg-color:     #fff2e6;
+  --text-color:   #5a2e00;
+  --accent-color: #ff6f3c;
+  --accent-hover: #cc5417;   /* richer burnt orange */
+  --border-color: #f8c49a;
+
+  --select-bg:     #ffedcc;
+  --select-text:   #5a2e00;
+  --select-border: #ff6f3c;
+
+  --link-color:          #d94f1e;
+  --link-visited-color:  #a93d15;
+  --link-hover-color:    #7f280c;  /* dark burnt sienna */
+}
+
+/* Dark Themes */
+
+/* Strawberry (dark) */
+[data-theme="strawberry"] {
+  --bg-color:     #1e1b1c;
+  --text-color:   #ffe6f0;
+  --accent-color: #ff4b82;
+  --accent-hover: #e6336f;   /* brighter, more vivid pink */
+  --border-color: #aa2c4d;
+
+  --select-bg:     #2a2226;
+  --select-text:   #ffe6f0;
+  --select-border: #aa2c4d;
+
+  --link-color:          #ff69a8;
+  --link-visited-color:  #b02e6a;
+  --link-hover-color:    #ff1a57;  /* hot pink with more punch */
+}
+
+/* Midnight Purple (dark, rich) */
+[data-theme="midnight"] {
+  --bg-color:     #121224;
+  --text-color:   #eeeeff;
+  --accent-color: #9c27b0;
+  --accent-hover: #5e137a;   /* deep royal purple */
+  --border-color: #3f0071;
+
+  --select-bg:     #2a293f;
+  --select-text:   #eeeeff;
+  --select-border: #3f0071;
+
+  --link-color:          #bf40bf;
+  --link-visited-color:  #8a228a;
+  --link-hover-color:    #8e3bbf;  /* a softer magenta hover */
+}
+
+/* Forest (dark, earthy) */
+[data-theme="forest"] {
+  --bg-color:     #1b2a1f;
+  --text-color:   #e0f2e0;
+  --accent-color: #4caf50;
+  --accent-hover: #357a3a;   /* deeper green */
+  --border-color: #2e5d3c;
+
+  --select-bg:     #2a3b2a;
+  --select-text:   #e0f2e0;
+  --select-border: #4caf50;
+
+  --link-color:          #66bb6a;
+  --link-visited-color:  #4d8c4d;
+  --link-hover-color:    #3b6b3b;  /* darker green */
+}
+
+/* Desert (dark, warm) */
+[data-theme="desert"] {
+  --bg-color:     #2b1a0d;
+  --text-color:   #f5e6d3;
+  --accent-color: #ff9800;
+  --accent-hover: #cc7a00;   /* deeper amber */
+  --border-color: #7c4d00;
+
+  --select-bg:     #3b2a1f;
+  --select-text:   #f5e6d3;
+  --select-border: #7c4d00;
+
+  --link-color:          #ffb74d;
+  --link-visited-color:  #cc8e00;
+  --link-hover-color:    #ff8f00;  /* a more vibrant amber */
+}

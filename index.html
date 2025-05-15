@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psych Deluxe Utilities</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+  <nav class="sidebar collapsed" id="sidebar">
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="menu">
+      <li class="accordion" id="toolsAccordion">
+        <button class="menu-btn" id="toolsBtn">
+          <span class="label">Tools</span>
+        </button>
+        <ul class="submenu">
+          <li class="disabled"><span>LRC to JSON</span></li>
+          <li class="disabled"><span>Dialogue Creator</span></li>
+        </ul>
+      </li>
+      <li>
+        <a class="menu-btn" href="downloads/lrc-to-json-standalone.zip" download>
+          <span class="label">Standalone ZIP</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-btn" href="https://github.com/WorkSquash/Psych-Deluxe/releases" target="_blank">
+          <span class="label">Download Psych Deluxe</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <header>
+      <h1>Psych Deluxe Utilities</h1>
+      <button class="settings-btn" id="settingsBtn">Customize</button>
+    </header>
+    <section id="content">
+      <p>Select a tool from the sidebar.</p>
+    </section>
+  </main>
+
+  <div class="settings-panel" id="settingsPanel">
+    <h2>Customize</h2>
+    <label for="themeSelect">Theme:</label>
+    <select id="themeSelect">
+    <optgroup label="Classic Themes">
+        <option value="auto">Match System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </optgroup>
+    <optgroup label="Light Themes">
+        <option value="mint">Icy Mint</option>
+        <option value="coffee">Coffee</option>
+        <option value="sunset">Sunset</option>
+        <option value="ocean">Ocean</option>
+    </optgroup>
+
+    <optgroup label="Dark Themes">
+        <option value="strawberry">Strawberry</option>
+        <option value="midnight">Midnight Purple</option>
+        <option value="forest">Forest Green</option>
+        <option value="desert">Desert</option>
+    </optgroup>
+    </select>
+
+
+    <label for="fontSelect">Font:</label>
+    <select id="fontSelect">
+      <option value="Segoe UI">Segoe UI</option>
+      <option value="Tahoma">Tahoma</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Georgia">Georgia</option>
+    </select>
+  </div>
+
+  <script src="scripts/client_settings.js" defer></script>
+</body>
+</html>
