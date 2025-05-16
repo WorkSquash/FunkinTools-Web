@@ -1,82 +1,99 @@
-/*Light Themes*/
+/* ========== Light Themes ========== */
 
-/* Ocean (light with deep accents) */
+/* Ocean */
 [data-theme="ocean"] {
-  --bg-color:     #f0faff;
-  --text-color:   #0c1a24;
-  --accent-color: #0077cc;
-  --accent-hover: #004f80;   /* deeper navy blue */
-  --border-color: #80caff;
+  --bg-color:     #e6f7ff;
+  --text-color:   #08293d;
+  --accent-color: #0099e5;
+  --accent-hover: #0077cc;
+  --border-color: #99d6ff;
 
   --select-bg:     #ffffff;
-  --select-text:   #0c1a24;
-  --select-border: #0077cc;
+  --select-text:   #08293d;
+  --select-border: #0099e5;
 
-  --link-color:          #006bb3;
-  --link-visited-color:  #004d80;
-  --link-hover-color:    #003060;  /* darker, more saturated */
+  --link-color:         #007acc;
+  --link-visited-color: #005b99;
+  --link-hover-color:   #004477;
 }
 
-
-/* Icy Mint (light cool) */
+/* Icy Mint */
 [data-theme="mint"] {
-  --bg-color:     #e6f0f0;
-  --text-color:   #1a3a3a;
-  --accent-color: #56c7c1;
-  --accent-hover: #2a9d97;   /* stronger teal */
-  --border-color: #a0cbc9;
+  --bg-color:     #e4fefb;
+  --text-color:   #1b3d3b;
+  --accent-color: #4ad9d1;
+  --accent-hover: #36b4ac;
+  --border-color: #b3e5e3;
 
-  --select-bg:     #d9f0f0;
-  --select-text:   #1a3a3a;
-  --select-border: #56c7c1;
+  --select-bg:     #d0f7f3;
+  --select-text:   #1b3d3b;
+  --select-border: #4ad9d1;
 
-  --link-color:          #329a94;
-  --link-visited-color:  #226c68;
-  --link-hover-color:    #1a6c67;  /* darker teal */
+  --link-color:         #329a94;
+  --link-visited-color: #24736e;
+  --link-hover-color:   #1e5e59;
 }
 
-/* Coffee (warm, muted) */
+/* Coffee */
 [data-theme="coffee"] {
-  --bg-color:     #f5f0eb;
-  --text-color:   #4b3b2b;
-  --accent-color: #6f4e37;
-  --accent-hover: #402913;   /* darker chocolate brown */
-  --border-color: #b9a691;
+  --bg-color:     #f6f1ea;
+  --text-color:   #3f2c1c;
+  --accent-color: #8d5a3d;
+  --accent-hover: #6e3e25;
+  --border-color: #cdb29b;
 
-  --select-bg:     #efe7dc;
-  --select-text:   #4b3b2b;
-  --select-border: #6f4e37;
+  --select-bg:     #f1e5d6;
+  --select-text:   #3f2c1c;
+  --select-border: #8d5a3d;
 
-  --link-color:          #835c3b;
-  --link-visited-color:  #6b4b2d;
-  --link-hover-color:    #4d3214;  /* deep brown */
+  --link-color:         #a75c3b;
+  --link-visited-color: #744022;
+  --link-hover-color:   #5c3118;
 }
 
-/* Sunset (warm and bright) */
+/* Sunset */
 [data-theme="sunset"] {
-  --bg-color:     #fff2e6;
-  --text-color:   #5a2e00;
-  --accent-color: #ff6f3c;
-  --accent-hover: #cc5417;   /* richer burnt orange */
-  --border-color: #f8c49a;
+  --bg-color:     #fff5ec;
+  --text-color:   #5c2600;
+  --accent-color: #ff7a45;
+  --accent-hover: #cc5c1f;
+  --border-color: #ffcba6;
 
-  --select-bg:     #ffedcc;
-  --select-text:   #5a2e00;
-  --select-border: #ff6f3c;
+  --select-bg:     #ffe8d2;
+  --select-text:   #5c2600;
+  --select-border: #ff7a45;
 
-  --link-color:          #d94f1e;
-  --link-visited-color:  #a93d15;
-  --link-hover-color:    #7f280c;  /* dark burnt sienna */
+  --link-color:         #ff5a1e;
+  --link-visited-color: #b9410c;
+  --link-hover-color:   #933000;
 }
 
-/* Dark Themes */
+/* Lime Sorbet */
+[data-theme="lime"] {
+  --bg-color:     #f4fff0;
+  --text-color:   #2d3c2d;
+  --accent-color: #b2f200;
+  --accent-hover: #84c400;
+  --border-color: #d4fcb8;
 
-/* Strawberry (dark) */
+  --select-bg:     #ecffe2;
+  --select-text:   #2d3c2d;
+  --select-border: #a8e600;
+
+  --link-color:         #7dbf00;
+  --link-visited-color: #5e9900;
+  --link-hover-color:   #6aa100;
+}
+
+
+/* ========== Dark Themes ========== */
+
+/* Strawberry Jam */
 [data-theme="strawberry"] {
   --bg-color:     #1e1b1c;
   --text-color:   #ffe6f0;
   --accent-color: #ff4b82;
-  --accent-hover: #e6336f;   /* brighter, more vivid pink */
+  --accent-hover: #e6336f; 
   --border-color: #aa2c4d;
 
   --select-bg:     #2a2226;
@@ -85,32 +102,32 @@
 
   --link-color:          #ff69a8;
   --link-visited-color:  #b02e6a;
-  --link-hover-color:    #ff1a57;  /* hot pink with more punch */
+  --link-hover-color:    #ff1a57;
 }
 
-/* Midnight Purple (dark, rich) */
+/* Midnight Purple */
 [data-theme="midnight"] {
-  --bg-color:     #121224;
-  --text-color:   #eeeeff;
-  --accent-color: #9c27b0;
-  --accent-hover: #5e137a;   /* deep royal purple */
-  --border-color: #3f0071;
+  --bg-color:     #100f1f;
+  --text-color:   #efecff;
+  --accent-color: #ab47bc;
+  --accent-hover: #7e2394;
+  --border-color: #4a0073;
 
-  --select-bg:     #2a293f;
-  --select-text:   #eeeeff;
-  --select-border: #3f0071;
+  --select-bg:     #231f3c;
+  --select-text:   #efecff;
+  --select-border: #4a0073;
 
-  --link-color:          #bf40bf;
-  --link-visited-color:  #8a228a;
-  --link-hover-color:    #8e3bbf;  /* a softer magenta hover */
+  --link-color:         #cf61d4;
+  --link-visited-color: #9838a6;
+  --link-hover-color:   #b250c0;
 }
 
-/* Forest (dark, earthy) */
+/* Forest */
 [data-theme="forest"] {
   --bg-color:     #1b2a1f;
   --text-color:   #e0f2e0;
   --accent-color: #4caf50;
-  --accent-hover: #357a3a;   /* deeper green */
+  --accent-hover: #357a3a;
   --border-color: #2e5d3c;
 
   --select-bg:     #2a3b2a;
@@ -119,22 +136,81 @@
 
   --link-color:          #66bb6a;
   --link-visited-color:  #4d8c4d;
-  --link-hover-color:    #3b6b3b;  /* darker green */
+  --link-hover-color:    #3b6b3b;
 }
 
-/* Desert (dark, warm) */
+/* Desert */
 [data-theme="desert"] {
-  --bg-color:     #2b1a0d;
-  --text-color:   #f5e6d3;
-  --accent-color: #ff9800;
-  --accent-hover: #cc7a00;   /* deeper amber */
-  --border-color: #7c4d00;
+  --bg-color:     #2e1a0f;
+  --text-color:   #ffe8cc;
+  --accent-color: #ffb74d;
+  --accent-hover: #ff9800;
+  --border-color: #a66c2f;
 
-  --select-bg:     #3b2a1f;
-  --select-text:   #f5e6d3;
-  --select-border: #7c4d00;
+  --select-bg:     #3e2a1b;
+  --select-text:   #ffe8cc;
+  --select-border: #ff9800;
 
-  --link-color:          #ffb74d;
-  --link-visited-color:  #cc8e00;
-  --link-hover-color:    #ff8f00;  /* a more vibrant amber */
+  --link-color:         #ffb74d;
+  --link-visited-color: #d2842d;
+  --link-hover-color:   #ffa726;
+}
+
+/* Noir Blue */
+[data-theme="noir"] {
+  --bg-color:     #0d1117;
+  --text-color:   #c9d1d9;
+  --accent-color: #58a6ff;
+  --accent-hover: #1f6feb;
+  --border-color: #30363d;
+
+  --select-bg:     #161b22;
+  --select-text:   #c9d1d9;
+  --select-border: #58a6ff;
+
+  --link-color:         #79c0ff;
+  --link-visited-color: #4a90e2;
+  --link-hover-color:   #1f6feb;
+}
+
+/* ========== High Contrast / Monochrome ========== */
+
+/* High Contrast / Monochrome */
+
+[data-theme="mono"] {
+  --bg-color:       #ffffff;
+  --text-color:     #000000;
+  --accent-color:   #000000;
+  --accent-hover:   #333333;
+  --border-color:   #000000;
+
+  --select-bg:      #ffffff;
+  --select-text:    #000000;
+  --select-border:  #000000;
+
+  --link-color:          #000000;
+  --link-visited-color:  #222222;
+  --link-hover-color:    #444444;
+}
+
+/* Mono Light hamburger fix */
+:root[data-theme="mono"] .hamburger svg rect {
+  fill: #eee;
+}
+
+/* TODO: Fix this theme */
+[data-theme="mono-dark"] {
+  --bg-color:       #000000;
+  --text-color:     #ffffff;
+  --accent-color:   #ffffff;
+  --accent-hover:   #cccccc;
+  --border-color:   #ffffff;
+
+  --select-bg:      #000000;
+  --select-text:    #ffffff;
+  --select-border:  #ffffff;
+
+  --link-color:          #ffffff;
+  --link-visited-color:  #bbbbbb;
+  --link-hover-color:    #dddddd;
 }

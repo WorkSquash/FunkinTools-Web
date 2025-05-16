@@ -1,80 +1,78 @@
-document.getElementById('convertBtn').addEventListener('click', processFiles);
+document.addEventListener('DOMContentLoaded', () => {
+  const fileInput       = document.getElementById('lrcFile');
+  const uploadLrcBtn    = document.getElementById('uploadLrcBtn');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  const textInput       = document.getElementById('lrcInput');
+  const convertBtn      = document.getElementById('convertBtn');
+  const outTA           = document.getElementById('jsonOutput');
+  const downloadBtn     = document.getElementById('downloadJsonBtn');
 
-function processFiles() {
-    const files = document.getElementById('fileInput').files;
-    const outputDiv = document.getElementById('output');
-    const downloadBtn = document.getElementById('downloadBtn');
-    let allOutputs = {};
+  // When the upload button is clicked, trigger the hidden file input
+  uploadLrcBtn.addEventListener('click', () => {
+    fileInput.click();
+  });
 
-    outputDiv.textContent = 'Processing...';
-    downloadBtn.style.display = 'none';
+  // When a file is selected
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) return;
 
-    if (!files.length) {
-        outputDiv.textContent = 'Please select one or more LRC files.';
-        return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      textInput.value = e.target.result;
+    };
+    reader.readAsText(file);
+
+    // Show file name
+    fileNameDisplay.textContent = file.name;
+  });
+
+  // Convert button logic
+  convertBtn.addEventListener('click', () => {
+    const lrcText = textInput.value.trim();
+    if (!lrcText) {
+      alert('Please paste or upload an LRC file first.');
+      return;
     }
 
-    Promise.all(Array.from(files).map(file => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = e => {
-                const result = processLRC(e.target.result);
-                const outName = file.name.replace('.lrc', '-lyrics.json');
-                allOutputs[outName] = result.jsonOutput;
-                resolve();
-            };
-            reader.onerror = () => reject(`Error reading ${file.name}`);
-            reader.readAsText(file);
-        });
-    }))
-    .then(() => displayFirstOutput(allOutputs))
-    .catch(err => outputDiv.textContent = `Error: ${err}`);
-}
+    const parsed = parseLRC(lrcText);
+    const jsonStr = JSON.stringify({ lyrics: parsed }, null, 2);
 
-function displayFirstOutput(allOutputs) {
-    const outputDiv = document.getElementById('output');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const firstKey = Object.keys(allOutputs)[0];
+    outTA.value = jsonStr;
 
-    if (!firstKey) {
-        outputDiv.textContent = 'No valid LRC files processed.';
-        return;
-    }
-
-    const parsed = JSON.parse(allOutputs[firstKey]);
-    outputDiv.textContent = JSON.stringify(parsed, null, 4);
-
-    const jsonString = JSON.stringify({ lyrics: parsed.lyrics }, null, 4);
-    const blob = new Blob([jsonString], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
+    // prepare download link
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
 
     downloadBtn.href = url;
-    downloadBtn.download = firstKey;
-    downloadBtn.style.display = 'block';
-}
+    downloadBtn.download = 'lyrics.json';
+    downloadBtn.classList.remove('disabled');
+    downloadBtn.removeAttribute('aria-disabled');
+  });
+});
 
-function processLRC(lrcContent) {
-    const lines = lrcContent.split('\n');
-    let captions = [];
+/**
+ * parseLRC(text:string) => Array<{time:number,text:string}>
+ * Extracts [mm:ss.xx] tags, converts to ms, strips tags.
+ */
+function parseLRC(text) {
+  const lines = text.split(/\r?\n/);
+  const entries = [];
+  const re = /\[(\d{1,2}):(\d{1,2})(?:\.(\d{1,3}))?\]/g;
 
-    for (const line of lines) {
-        const titleMatch = line.match(/\[ti:(.*?)\]/i);
-        if (titleMatch) continue;
-
-        const match = line.match(/\[(\d+):(\d+(?:\.\d+)?)\](.*)/);
-        if (match) {
-            const minutes = +match[1];
-            const seconds = +match[2];
-            captions.push({
-                time: Math.round(minutes * 60000 + seconds * 1000),
-                text: match[3].trim(),
-                topText: "",
-                bottomText: "",
-                displayDuration: 3000
-            });
-        }
+  for (let line of lines) {
+    const tags = [];
+    let m;
+    while ((m = re.exec(line)) !== null) {
+      const mins = +m[1];
+      const secs = +m[2];
+      const ms   = m[3] ? parseInt(m[3].padEnd(3, '0'), 10) : 0;
+      tags.push(mins * 60_000 + secs * 1000 + ms);
     }
 
-    captions.sort((a, b) => a.time - b.time);
-    return { jsonOutput: JSON.stringify({ lyrics: captions }) };
+    const lyric = line.replace(re, '').trim();
+    tags.forEach(t => entries.push({ time: t, text: lyric }));
+  }
+
+  return entries.sort((a, b) => a.time - b.time);
 }

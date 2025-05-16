@@ -5,7 +5,7 @@
   --accent-color: #c300ff;
   --accent-hover: #4e0066;
   --border-color: #ccc;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --sidebar-width: 200px;
   --sidebar-collapsed: 60px;
 
@@ -25,7 +25,7 @@
   --accent-color: #c300ff;
   --accent-hover: #4e0066;
   --border-color: #272727;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --sidebar-width: 200px;
   --sidebar-collapsed: 60px;
 
@@ -62,6 +62,25 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+/* customize panel: start hidden, slightly up & transparent */
+#settingsPanel {
+  position: absolute;
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transform-origin: top center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  /* optional: add a little shadow so it floats above */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* when “open”, slide down & fade in */
+#settingsPanel.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .sidebar {
   position: fixed; top: 0; left: 0;
   height: 100vh;
@@ -83,10 +102,32 @@ select optgroup {
   width: var(--sidebar-collapsed);
 }
 
+
+
 .hamburger {
-  background: none; border: none;
-  color: white; font-size: 1.5em;
-  padding: 20px; cursor: pointer;
+  display: flex;            
+  align-items: center;         
+  justify-content: center;     
+  width: 40px;              
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;            
+  color: var(--text-color);
+}
+
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger:hover .bar {
+  background-color: var(--accent-hover);
 }
 
 .menu {
@@ -138,6 +179,11 @@ main {
   margin-left: var(--sidebar-collapsed);
   padding: 40px; flex: 1;
   transition: margin-left 0.25s;
+}
+
+#sidebar{
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .sidebar:not(.collapsed) ~ main {
@@ -200,3 +246,128 @@ header {
   border: none; padding: 6px 10px;
   cursor: pointer; border-radius: 4px;
 }
+
+/* Firefox */
+.tool-panel textarea {
+  /* thin: “auto” | “thin” | “none” */
+  scrollbar-width: thin;
+  /* thumb color, track color */
+  scrollbar-color: var(--accent-color) var(--select-bg);
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+.tool-panel textarea::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.tool-panel textarea::-webkit-scrollbar-track {
+  background: var(--select-bg);
+}
+
+.tool-panel textarea::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  border: 2px solid var(--select-bg);
+}
+
+.tool-panel textarea::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Intro Panel */
+.intro-panel {
+  background: var(--select-bg);
+  color: var(--select-text);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--select-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 900px;
+  margin: 2rem auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.intro-panel h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+.intro-panel h2 span {
+  color: var(--text-color);
+}
+
+.intro-panel p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tool-info {
+  margin-bottom: 1.75rem;
+  padding: 1rem;
+  border-left: 4px solid var(--accent-color);
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+.tool-info h3 {
+  margin-top: 0;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.tool-info.coming-soon {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.warn {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-color, #1e1e1e);
+  color: var(--text-color, #aaa);
+  border-top: 1px solid var(--border-color, #333);
+  padding: 0.8em 1.5em;
+  font-size: 0.85rem;
+  text-align: center;
+  z-index: 1000;
+  backdrop-filter: saturate(180%) blur(10px);
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  font-family: var(--font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif);
+}
+
+.site-footer p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.site-footer a {
+  color: var(--link-color, #66aaff);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: var(--link-hover-color, #99caff);
+  text-decoration: underline;
+}
+

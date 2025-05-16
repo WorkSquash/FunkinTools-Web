@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.png" type="image/png">
-  <title>Psych Deluxe Utilities</title>
-  <link rel="stylesheet" href="styles/index.css">
-  <link rel="stylesheet" href="styles/themes.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Psych Deluxe — LRC to JSON Converter</title>
+  <link rel="icon" href="../favicon.png" type="image/png" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="../styles/index.css" />
+  <link rel="stylesheet" href="../styles/themes.css" />
+  <!-- Tool-specific -->
+  <link rel="stylesheet" href="../styles/lrc_to_json.css" />
 </head>
 <body>
   <nav class="sidebar collapsed" id="sidebar">
@@ -18,18 +22,18 @@
       </svg>
     </button>
     <ul class="menu">
-      <li><a class="menu-btn" href="index.html"><span class="label">Home</span></a></li>
+      <li><a class="menu-btn" href="../index.html"><span class="label">Home</span></a></li>
       <li class="accordion" id="toolsAccordion">
         <button class="menu-btn" id="toolsBtn">
           <span class="label">Tools</span>
         </button>
         <ul class="submenu">
-          <li><a class="menu-btn" href="tools/lrc_to_json.html"><span class="label">LRC to JSON</span></a></li>
+          <li><a class="menu-btn" href="lrc_to_json.html">LRC to JSON</a></li>
           <li class="disabled"><span>Dialogue Creator</span></li>
         </ul>
       </li>
       <li>
-        <a class="menu-btn" href="downloads/lrc-to-json-standalone.zip" download>
+        <a class="menu-btn" class="disabled" href="downloads/lrc-to-json-standalone.zip" download>
           <span class="label" class="disabled">Standalone ZIP</span>
         </a>
       </li>
@@ -41,39 +45,44 @@
     </ul>
   </nav>
 
-  <main>
-    <header>
-      <h1>Psych Deluxe Utilities</h1>
-      <button class="settings-btn" id="settingsBtn">Customize</button>
-    </header>
-    <section id="content">
-      <div class="intro-panel">
-        <h2>Welcome to <span>Psych Deluxe Utilities</span></h2>
-        <p>This is your all-in-one toolset for Psych Deluxe modding, right in your browser. No installations, no uploads—just fast, secure, and local utilities.</p>
 
-        <div class="tool-info">
-          <h3>LRC to JSON Converter</h3>
-          <p>Convert synced <code>.lrc</code> lyrics into structured <code>.json</code> format. Paste your LRC, convert, and download instantly.</p>
-        </div>
+    <main>
+  <header>
+    <h1>LRC to JSON Converter</h1>
+    <button class="settings-btn" id="settingsBtn">Customize</button>
+  </header>
 
-        <div class="tool-info coming-soon">
-          <h3>Coming Soon: Standalone ZIP</h3>
-          <p>Grab a ready-to-use offline version of all tools. Just unzip and go.</p> 
-          <p class="warn">Requires Python to be installed on the System.</p>
-        </div>
+  <section class="intro-panel">
+    <h2>How to Use</h2>
+    <p>This tool converts <code>.lrc</code> files into a JSON format that's <strong class="warn">only compatible with Psych Deluxe</strong>.</p>
+    <ul>
+      <li>Upload an <code>.lrc</code> file <em>or</em> paste its contents into the text area.</li>
+      <li>Click <strong>Convert</strong> to generate a JSON file.</li>
+      <li>Download the result and place it in your mod's <code>data/</code> folder.</li>
+    </ul>
+    <p class="warn"><strong>Note:</strong> This won't work with vanilla FNF or other engines. It's designed specifically for <a href="https://github.com/WorkSquash/Psych-Deluxe" target="_blank">Psych Deluxe</a>.</p>
+  </section>
 
-        <div class="tool-info">
-          <h3>Download Psych Deluxe</h3>
-          <p>Visit the GitHub releases page for the latest version of Psych Deluxe and its resources.</p>
+    <div class="tool-panel" id="lrcTool">
+        <div class="row">
+        <div class="col">
+            <button id="uploadLrcBtn" class="file-btn">Upload LRC file</button>
+            <input type="file" id="lrcFile" accept=".lrc,text/plain" hidden />
+            <span id="fileNameDisplay" style="margin-left: 1em; font-style: italic;"></span>
+            <label for="lrcInput">Or paste LRC text:</label>
+            <textarea id="lrcInput" rows="10" placeholder="[00:01.00] Hello world"></textarea>
+            <button id="convertBtn">Convert</button>
         </div>
-
-        <div class="tool-info coming-soon">
-          <h3>Coming Soon: Dialogue Creator</h3>
-          <p>Build and manage in-game dialogues with ease. Stay tuned!</p>
+        <div class="col">
+            <label for="jsonOutput">JSON Output:</label>
+            <textarea id="jsonOutput" readonly rows="20"></textarea>
+            <a id="downloadJsonBtn" class="button disabled" aria-disabled="true">
+            Download JSON
+            </a>
         </div>
-      </div>
-    </section>
-  </main>
+        </div>
+    </div>
+    </main>
 
   <div class="settings-panel" id="settingsPanel">
     <h2>Customize</h2>
@@ -128,7 +137,7 @@
   </select>
   </div>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <hr>
     <p>&copy; 2025 <strong>Psych Deluxe Utilities</strong> by WorkSquash. All rights reserved.</p>
     <p>
@@ -137,12 +146,12 @@
     </p>
     <p>
       <a href="https://github.com/WorkSquash/Psych-Deluxe" target="_blank" rel="noopener noreferrer">GitHub Repo</a> |
-      <a href="license.html" target="_blank">License</a> |
-      <a href="privacy.html" target="_blank">Privacy Policy</a> (not that we store anything)
+      <a href="../license.html" target="_blank">License</a> |
+      <a href="../privacy.html" target="_blank">Privacy Policy</a> (not that we store anything)
     </p>
   </footer>
-
-
-  <script src="scripts/client_settings.js" defer></script>
+  <!-- load UI then tool logic -->
+  <script src="../scripts/client_settings.js" defer></script>
+  <script src="../scripts/lrc_to_json.js"   defer></script>
 </body>
 </html>

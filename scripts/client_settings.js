@@ -3,6 +3,8 @@ const sidebar = document.getElementById('sidebar');
 const hamburger = document.getElementById('hamburger');
 hamburger.addEventListener('click', () => {
   sidebar.classList.toggle('collapsed');
+  const expanded = !sidebar.classList.contains('collapsed');
+  hamburger.setAttribute('aria-expanded', expanded);
 });
 
 // —— Tools accordion ——
@@ -23,58 +25,78 @@ function closeToolsOnClickOutside() {
 }
 
 // —— Settings panel toggle & auto-close ——
-const settingsBtn = document.getElementById('settingsBtn');
+const settingsBtn   = document.getElementById('settingsBtn');
 const settingsPanel = document.getElementById('settingsPanel');
 
 settingsBtn.addEventListener('click', e => {
   e.stopPropagation();
-  const isOpen = settingsPanel.classList.toggle('open');
+  const isOpening = !settingsPanel.classList.contains('open');
 
-  if (isOpen) {
-    // Get button position & dimensions
-    const rect = settingsBtn.getBoundingClientRect();
-    const panelWidth = settingsPanel.offsetWidth;
-    const panelHeight = settingsPanel.offsetHeight;
+  if (isOpening) {
+    // 1) show invisibly off-screen so we can measure it
+    settingsPanel.style.visibility = 'hidden';
+    settingsPanel.style.display    = 'block';
 
-    // Scroll positions
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const rect   = settingsBtn.getBoundingClientRect();
+    const panelW = settingsPanel.offsetWidth;
+    const panelH = settingsPanel.offsetHeight;
 
-    // Calculate ideal top & left
-    let top = rect.bottom + scrollTop;
-    let left = rect.left + scrollLeft;
+    // 2) hide again until we're ready
+    settingsPanel.style.display    = 'none';
+    settingsPanel.style.visibility = '';
 
-    // Adjust if panel would overflow bottom
-    if (top + panelHeight > window.innerHeight + scrollTop) {
-      top = rect.top + scrollTop - panelHeight;
-    }
+    // 3) desired position in **document** coords
+    const scrollTop  = window.pageYOffset;
+    const scrollLeft = window.pageXOffset;
+    let top  = rect.bottom + scrollTop;
+    let left = rect.left   + scrollLeft;
 
-    // Adjust if panel would overflow right
-    if (left + panelWidth > window.innerWidth + scrollLeft) {
-      left = window.innerWidth + scrollLeft - panelWidth - 10; // 10px padding
-    }
+    // 4) viewport dims (no scroll)
+    const vpW = document.documentElement.clientWidth;
+    const vpH = document.documentElement.clientHeight;
 
-    // Prevent overflow left
-    if (left < 10) {
-      left = 10;
-    }
+    // 5) clamp within [0, vp - panel]
+    //    NOTE: left/ top are DOC coords, so we re-add scroll after clamping
+    const minLeft  = 0;
+    const maxLeft  = vpW - panelW;
+    const minTop   = 0;
+    const maxTop   = vpH - panelH;
 
-    settingsPanel.style.top = `${top}px`;
-    settingsPanel.style.left = `${left}px`;
+    // clamp **relative** to viewport, then convert back
+    const relX = Math.min(Math.max(rect.left,  minLeft),  maxLeft);
+    const relY = Math.min(Math.max(rect.bottom, minTop),   maxTop);
+
+    left = relX + scrollLeft;
+    top  = relY + scrollTop;
+
+    // 6) position, show & animate
+    settingsPanel.style.top     = `${top}px`;
+    settingsPanel.style.left    = `${left}px`;
     settingsPanel.style.display = 'block';
+    settingsPanel.getBoundingClientRect(); // force reflow
+    settingsPanel.classList.add('open');
 
+    // auto-close on outside click
     document.addEventListener('click', closeSettingsOnClickOutside, { once: true });
   } else {
-    settingsPanel.style.display = 'none';
+    // slide-out
+    settingsPanel.classList.remove('open');
+    settingsPanel.addEventListener('transitionend', function handler() {
+      settingsPanel.style.display = 'none';
+      settingsPanel.removeEventListener('transitionend', handler);
+    });
   }
 });
 
 function closeSettingsOnClickOutside() {
+  if (!settingsPanel.classList.contains('open')) return;
   settingsPanel.classList.remove('open');
-  settingsPanel.style.display = 'none';
+  settingsPanel.addEventListener('transitionend', function handler() {
+    settingsPanel.style.display = 'none';
+    settingsPanel.removeEventListener('transitionend', handler);
+  });
 }
 
-// Prevent clicks inside panel from closing it
 settingsPanel.addEventListener('click', e => e.stopPropagation());
 
 // —— Theme & font persistence ——
