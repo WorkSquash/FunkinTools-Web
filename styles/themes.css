@@ -15,6 +15,11 @@
   --link-color:         #007acc;
   --link-visited-color: #005b99;
   --link-hover-color:   #004477;
+
+  --warn-color:    #ffa500;  
+  --error-color:   #d93025;  
+  --info-color:    #0288d1;  
+  --success-color: #388e3c;  
 }
 
 /* Icy Mint */
@@ -32,6 +37,11 @@
   --link-color:         #329a94;
   --link-visited-color: #24736e;
   --link-hover-color:   #1e5e59;
+
+  --warn-color:    #f9a825;  
+  --error-color:   #c62828;  
+  --info-color:    #0097a7;  
+  --success-color: #2e7d32;  
 }
 
 /* Coffee */
@@ -49,6 +59,11 @@
   --link-color:         #a75c3b;
   --link-visited-color: #744022;
   --link-hover-color:   #5c3118;
+
+  --warn-color:    #bc6c25;  
+  --error-color:   #7b241c;  
+  --info-color:    #4a90e2; 
+  --success-color: #5d8346;  
 }
 
 /* Sunset */
@@ -66,6 +81,11 @@
   --link-color:         #ff5a1e;
   --link-visited-color: #b9410c;
   --link-hover-color:   #933000;
+
+  --warn-color:    #ff9500;  
+  --error-color:   #c0392b;  
+  --info-color:    #3498db;  
+  --success-color: #27ae60;  
 }
 
 /* Lime Sorbet */
@@ -83,6 +103,11 @@
   --link-color:         #7dbf00;
   --link-visited-color: #5e9900;
   --link-hover-color:   #6aa100;
+
+  --warn-color:    #c9b700;  
+  --error-color:   #a62a2a;  
+  --info-color:    #2176bd;  
+  --success-color: #3e7d15;  
 }
 
 
@@ -103,6 +128,11 @@
   --link-color:          #ff69a8;
   --link-visited-color:  #b02e6a;
   --link-hover-color:    #ff1a57;
+
+  --warn-color:    #ffb86c; 
+  --error-color:   #ff5555;  
+  --info-color:    #8be9fd;  
+  --success-color: #50fa7b;  
 }
 
 /* Midnight Purple */
@@ -120,6 +150,11 @@
   --link-color:         #cf61d4;
   --link-visited-color: #9838a6;
   --link-hover-color:   #b250c0;
+
+  --warn-color:    #ff79c6;  
+  --error-color:   #ff5555;  
+  --info-color:    #8be9fd;  
+  --success-color: #50fa7b;  
 }
 
 /* Forest */
@@ -137,6 +172,11 @@
   --link-color:          #66bb6a;
   --link-visited-color:  #4d8c4d;
   --link-hover-color:    #3b6b3b;
+
+  --warn-color:    #f4d35e;  
+  --error-color:   #d90429;  
+  --info-color:    #3a86ff;  
+  --success-color: #06d6a0;  
 }
 
 /* Desert */
@@ -154,6 +194,11 @@
   --link-color:         #ffb74d;
   --link-visited-color: #d2842d;
   --link-hover-color:   #ffa726;
+
+  --warn-color:    #f9a825;  
+  --error-color:   #b71c1c; 
+  --info-color:    #0288d1; 
+  --success-color: #2e7d32;  
 }
 
 /* Noir Blue */
@@ -171,12 +216,16 @@
   --link-color:         #79c0ff;
   --link-visited-color: #4a90e2;
   --link-hover-color:   #1f6feb;
+
+  --warn-color:    #ffab00; 
+  --error-color:   #ff3b30; 
+  --info-color:    #64b5f6;  
+  --success-color: #4caf50;
 }
 
 /* ========== High Contrast / Monochrome ========== */
 
 /* High Contrast / Monochrome */
-
 [data-theme="mono"] {
   --bg-color:       #ffffff;
   --text-color:     #000000;
@@ -191,26 +240,19 @@
   --link-color:          #000000;
   --link-visited-color:  #222222;
   --link-hover-color:    #444444;
+
+  /* Feedback Colors */
+  --warn-color:    #ff9800;  
+  --error-color:   #f44336;  
+  --info-color:    #2196f3;  
+  --success-color: #4caf50;  
 }
 
-/* Mono Light hamburger fix */
+/* Mono Light Theme overrides */
 :root[data-theme="mono"] .hamburger svg rect {
   fill: #eee;
 }
 
-/* TODO: Fix this theme */
-[data-theme="mono-dark"] {
-  --bg-color:       #000000;
-  --text-color:     #ffffff;
-  --accent-color:   #ffffff;
-  --accent-hover:   #cccccc;
-  --border-color:   #ffffff;
-
-  --select-bg:      #000000;
-  --select-text:    #ffffff;
-  --select-border:  #ffffff;
-
-  --link-color:          #ffffff;
-  --link-visited-color:  #bbbbbb;
-  --link-hover-color:    #dddddd;
+[data-theme="mono"] .settings-btn {
+  color: white;
 }
