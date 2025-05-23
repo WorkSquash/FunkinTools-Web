@@ -253,6 +253,6 @@
   fill: #eee;
 }
 
-[data-theme="mono"] .settings-btn {
+[data-theme="mono"] .settings-btn, .primary-btn, .secondary-btn {
   color: white;
 }

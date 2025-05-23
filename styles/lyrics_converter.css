@@ -1,0 +1,137 @@
+/* === LAYOUT ADJUSTMENTS === */
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+nav.sidebar {
+  flex: 0 0 var(--sidebar-width);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  margin-left: var(--sidebar-collapsed);
+  transition: margin-left var(--transition-fast);
+}
+
+.sidebar:not(.collapsed) ~ main {
+  margin-left: var(--sidebar-width);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* === CONVERTER PANEL === */
+.tool-panel {
+  background: var(--select-bg);
+  border: 1px solid var(--select-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  color: var(--text-color);
+  transition: box-shadow var(--transition-fast);
+}
+.tool-panel:hover {
+  box-shadow: 0 6px 16px var(--shadow-light);
+}
+
+.tool-panel .row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tool-panel .col {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-panel label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+/* Inputs & Textareas */
+.tool-panel textarea,
+.tool-panel input[type="file"] {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--select-border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-family: monospace;
+  resize: vertical;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.tool-panel textarea:focus,
+.tool-panel input[type="file"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+/* Buttons & Download Link */
+.tool-panel button,
+.tool-panel a.button {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 2px 6px var(--shadow-light);
+}
+.tool-panel button:hover,
+.tool-panel a.button:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+.tool-panel a.button.disabled,
+.tool-panel button:disabled {
+  background: var(--border-color);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Custom File-Upload Button */
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 2px 6px var(--shadow-light);
+  text-decoration: none;
+}
+.file-btn:hover,
+.file-btn:focus {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+.file-btn:disabled {
+  background: var(--border-color);
+  cursor: not-allowed;
+  box-shadow: none;
+}

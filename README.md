@@ -3,10 +3,10 @@
 Modding made mildly easier.  
 A collection of browser-based tools to assist with Psych Deluxe modding, built with simplicity and vibes in mind.
 
-## What’s Inside?
+## What's Inside?
 
-- **LRC to JSON Converter**  
-  Quickly turn your LRC lyric files into Psych Engine-compatible JSON dialogue. It’s fast, lightweight, and doesn’t ask for your mother’s maiden name.
+- **Lyrics to JSON Converter**  
+  Quickly turn your lyric `.srt` `.lrc` and `.txt` files into Psych Deluxe-compatible JSON lyrics. It's fast, lightweight, and doesn't ask for your mother's maiden name.
 
 - **(WIP) Dialogue Creator**  
   A drag-and-drop style interface for building in-game dialogues. Currently just sitting pretty and disabled. Coming soon™.
@@ -33,9 +33,9 @@ Because not every tool needs to be bloated or overengineered. This is for modder
 ## License
 
 See the [LICENSE.txt](LICENSE.txt) file for all the legal fun. TL;DR:  
-- No commercial use  
+- Don't sell it for money.
 - Credit the author (WorkSquash)  
-- Don’t sue me if it explodes your cat
+- Don't sue me if it explodes your cat
 
 ## Contributing
 
@@ -52,7 +52,7 @@ Find me on [GitHub](https://github.com/WorkSquash) or yell into the discussions 
 ### Made With:
 
 - HTML5  
-- CSS (vanilla + some custom themes)  
-- JavaScript (also vanilla, no libraries)
+- CSS
+- JavaScript
 
-> “If it works, don’t touch it. Unless it’s ugly, then make it pretty.” — Some wise modder, probably
+> “If it works, don't touch it. Unless it's ugly, then make it pretty.” — Some wise modder, probably

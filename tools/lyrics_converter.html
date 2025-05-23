@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Psych Deluxe — Lyrics to JSON Converter</title>
+  <link rel="icon" href="../favicon.png" type="image/png" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../styles/themes.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Tool-specific -->
+  <link rel="stylesheet" href="../styles/lyrics_converter.css" />
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <nav class="sidebar collapsed" id="sidebar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle sidebar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect y="4" width="24" height="2" fill="currentColor"/>
+        <rect y="11" width="24" height="2" fill="currentColor"/>
+        <rect y="18" width="24" height="2" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="menu">
+      <li>
+        <a class="menu-btn" href="../index.html">
+          <span class="label">Home</span>
+        </a>
+      </li>
+      <li class="accordion" id="toolsAccordion">
+        <button class="menu-btn" id="toolsBtn">
+          <span class="label">Tools</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="lyrics_converter.html">Lyrics → JSON</a></li>
+          <li class="disabled">Dialogue Creator</li>
+        </ul>
+      </li>
+      <li>
+        <a class="menu-btn" href="https://github.com/WorkSquash/Psych-Deluxe/releases" target="_blank">
+          <span class="label">Download Psych Deluxe</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <header>
+      <h1>Lyrics to JSON Converter</h1>
+      <button class="settings-btn" id="settingsBtn">Customize</button>
+    </header>
+
+    <!-- INTRO -->
+    <section class="intro-panel">
+      <h2>How to Use</h2>
+      <p>This tool converts <code>.lrc</code>, <code>.srt</code> or plain <code>.txt</code> lyric files into a JSON format compatible with <strong>Psych Deluxe</strong>.</p>
+      <ul>
+        <li>Upload a <code>.lrc</code>, <code>.srt</code> or <code>.txt</code> file <em>or</em> paste its contents below.</li>
+        <li>Click <strong>Convert</strong> to generate your JSON preview.</li>
+        <li>Then hit <strong>Download JSON</strong> and drop it into your mod's <code>data/</code> folder.</li>
+      </ul>
+      <p class="warn"><strong>Note:</strong> Not compatible with vanilla FNF or other engines—designed specifically for <a href="https://github.com/WorkSquash/Psych-Deluxe" target="_blank">Psych Deluxe</a>.</p>
+    </section>
+
+    <!-- TOOL PANEL -->
+    <div class="tool-panel" id="lyricsTool">
+      <div class="row">
+        <!-- Input Column -->
+        <div class="col">
+          <button id="uploadFileBtn" class="file-btn"> Upload Lyrics File </button>
+          <input type="file" id="fileInput" accept=".lrc,.srt,.txt,text/plain" hidden />
+          <span id="fileNameDisplay" style="margin-left: 1em; font-style: italic;">No file chosen</span>
+
+          <label for="textInput">Or paste lyrics here:</label>
+          <textarea id="textInput" rows="10" placeholder="[00:01.00] First line of lyrics…"></textarea>
+
+          <button id="convertBtn">Convert</button>
+        </div>
+
+        <!-- Output Column -->
+        <div class="col">
+          <label for="jsonOutput">JSON Preview:</label>
+          <textarea id="jsonOutput" readonly rows="20" placeholder="{ }" ></textarea>
+          <a id="downloadJsonBtn" class="button disabled" aria-disabled="true">
+            Download JSON
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SETTINGS PANEL -->
+  <div class="settings-panel" id="settingsPanel">
+    <h2>Customize</h2>
+    <label for="themeSelect">Theme:</label>
+    <select id="themeSelect">
+      <optgroup label="Classic Themes">
+        <option value="auto">Match System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="mono">Monochrome</option>
+      </optgroup>
+      <optgroup label="Light Themes">
+        <option value="mint">Icy Mint</option>
+        <option value="coffee">Coffee</option>
+        <option value="sunset">Sunset</option>
+        <option value="ocean">Ocean</option>
+        <option value="lime">Lime Sorbet</option>
+      </optgroup>
+      <optgroup label="Dark Themes">
+        <option value="strawberry">Strawberry</option>
+        <option value="midnight">Midnight Purple</option>
+        <option value="forest">Forest Green</option>
+        <option value="desert">Desert</option>
+        <option value="noir">Noir Blue</option>
+      </optgroup>
+    </select>
+  </div>
+
+    <footer class="site-footer">
+    <hr>
+    <p>&copy; 2025 <strong>Psych Deluxe Utilities</strong> by WorkSquash. All rights reserved.</p>
+    <p>
+      This site and its tools are provided "as is" without warranty of any kind, either expressed or implied. 
+      Use at your own risk. We are not responsible if your files explode, your PC catches fire, or your toast lands butter-side down.
+    </p>
+    <p>
+      <a href="https://github.com/WorkSquash/Psych-Deluxe" target="_blank" rel="noopener noreferrer">GitHub Repo</a> |
+      <a href="LICENSE.txt" target="_blank">License</a> |
+      <a href="PRIVACY.txt" target="_blank">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../scripts/site/client_settings.js" defer></script>
+  <script src="../scripts/tools/lyrics_converter.js" defer></script>
+</body>
+</html>

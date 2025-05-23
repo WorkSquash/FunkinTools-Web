@@ -1,0 +1,57 @@
+<!-- TOOL PANEL -->
+<div class="tool-panel" id="dialogueTool">
+  <div class="row">
+    <!-- Input Column -->
+    <div class="col">
+      <h2>Dialogue Input</h2>
+      <label for="characterSelect">Character:</label>
+      <select id="characterSelect">
+        <option value="bf">Boyfriend</option>
+        <option value="gf">Girlfriend</option>
+        <option value="dad">Dad</option>
+        <!-- Add more characters as needed -->
+      </select>
+
+      <label for="expressionSelect">Expression:</label>
+      <select id="expressionSelect">
+        <option value="talk">Talk</option>
+        <option value="angry">Angry</option>
+        <option value="happy">Happy</option>
+        <!-- Add more expressions as needed -->
+      </select>
+
+      <label for="boxStateSelect">Box State:</label>
+      <select id="boxStateSelect">
+        <option value="normal">Normal</option>
+        <option value="angry">Angry</option>
+        <!-- Add more box states as needed -->
+      </select>
+
+      <label for="soundInput">Sound (optional):</label>
+      <input type="text" id="soundInput" placeholder="e.g., beep">
+
+      <label for="speedInput">Text Speed:</label>
+      <input type="number" id="speedInput" value="0.05" step="0.01" min="0.01">
+
+      <label for="dialogueText">Dialogue Text:</label>
+      <textarea id="dialogueText" rows="4" placeholder="Enter dialogue here..."></textarea>
+
+      <button id="addLineBtn">Add Line</button>
+      <button id="generateBtn">Generate JSON & Lua</button>
+    </div>
+
+    <!-- Output Column -->
+    <div class="col">
+      <h2>Dialogue Preview</h2>
+      <ul id="dialoguePreview"></ul>
+
+      <h2>Generated JSON</h2>
+      <textarea id="jsonOutput" readonly rows="10"></textarea>
+      <button id="downloadJsonBtn">Download JSON</button>
+
+      <h2>Generated Lua</h2>
+      <textarea id="luaOutput" readonly rows="10"></textarea>
+      <button id="downloadLuaBtn">Download Lua</button>
+    </div>
+  </div>
+</div>

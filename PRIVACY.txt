@@ -1,0 +1,30 @@
+Privacy Policy (lol)
+
+Welcome to Psych Deluxe Utilities, where we take privacy seriously — but not ourselves. Here's what you need to know in plain, human-readable English:
+
+What We Collect
+    We don't collect jack. No names, no emails, no IPs, no soul-binding contracts. This site is as nosy as a rock.
+
+What We Do Store (Locally Only)
+    We save your theme, font choice, and other little settings in your browser. Not on a server. Not in a database. Just local storage — the internet equivalent of scribbling something on a sticky note and leaving it on your fridge.
+    If you clear your browser data, it's all gone. Just like that. Poof.
+
+Cookies?
+    Nope. Not the tasty kind, not the tracking kind. Nada. We don't use cookies. We're not that fancy.
+
+Third Parties
+    There are none. No trackers, no ads, no scripts secretly calling out to dark corners of the web. The only party here is the one you're throwing with your cool new theme.
+
+Security
+    We're hosted on GitHub Pages. That means GitHub handles the heavy lifting — HTTPS, stability, and not crashing every five minutes. But we don't control what GitHub does with their data, so if you're super paranoid, go read 
+    GitHub's own Privacy Policy: https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement
+
+Legal-ish Stuff
+    We literally store nothing personal. There's nothing for us to leak, steal, or sell. So don't sue us. We're just some nerds making modding tools.
+    By using this site, you agree that we're not responsible if you accidentally delete your settings, brick your mod, or summon a digital poltergeist.
+
+How to Delete "Your Data"
+    Hit Ctrl+Shift+Delete, clear your browser's site data, and congratulations — you've wiped everything like a champ.
+
+TL;DR
+    We don't store or track you. Your browser remembers your preferences so we don't have to. GitHub hosts us, so if anything shady happens, blame them (but nicely).

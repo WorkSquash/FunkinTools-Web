@@ -127,10 +127,10 @@ window.addEventListener('DOMContentLoaded', () => {
   themeSelect.value = savedT;
   applyTheme(savedT);
 
-  const savedF = localStorage.getItem('pd-font') ||
+  /*const savedF = localStorage.getItem('pd-font') ||
     getComputedStyle(root).getPropertyValue('--font-family').trim();
   fontSelect.value = savedF;
-  root.style.setProperty('--font-family', savedF);
+  root.style.setProperty('--font-family', savedF);*/
 });
 
 // persist on change
@@ -140,8 +140,23 @@ themeSelect.addEventListener('change', e => {
   t === 'auto' ? localStorage.removeItem('pd-theme') : localStorage.setItem('pd-theme', t);
 });
 
+/*
 fontSelect.addEventListener('change', e => {
   const f = e.target.value;
   root.style.setProperty('--font-family', f);
   localStorage.setItem('pd-font', f);
+});
+*/
+
+// —— Footer ——
+let lastScrollY = window.scrollY;
+const footer = document.querySelector('.site-footer');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > lastScrollY) {
+    footer.classList.add('hide'); // scrolling down - hide
+  } else {
+    footer.classList.remove('hide'); // scrolling up - show
+  }
+  lastScrollY = window.scrollY;
 });
